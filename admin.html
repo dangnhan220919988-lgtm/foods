@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Thực Đơn Nhà Hàng</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Trang Quản Trị</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Thực Đơn</a></li>
+                <li><a href="#manage-dishes">Quản Lý Món Ăn</a></li>
+                <li><a href="#manage-categories">Quản Lý Danh Mục</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="manage-dishes">
+            <h2>Quản Lý Món Ăn</h2>
+            <button onclick="showAddDishForm()">Thêm Món Ăn Mới</button>
+            <div id="dish-form" style="display: none;">
+                <form id="add-dish-form">
+                    <input type="text" id="dish-name" placeholder="Tên món" required>
+                    <select id="dish-category" required>
+                        <option value="">Chọn danh mục</option>
+                    </select>
+                    <input type="number" id="dish-price" placeholder="Giá" required>
+                    <textarea id="dish-description" placeholder="Mô tả"></textarea>
+                    <input type="text" id="dish-image" placeholder="URL hình ảnh">
+                    <label><input type="checkbox" id="dish-available" checked> Còn phục vụ</label>
+                    <button type="submit">Lưu</button>
+                    <button type="button" onclick="hideAddDishForm()">Hủy</button>
+                </form>
+            </div>
+            <div class="dish-management">
+                <!-- Dish list will be populated by JS -->
+            </div>
+        </section>
+
+        <section id="manage-categories">
+            <h2>Quản Lý Danh Mục</h2>
+            <input type="text" id="new-category" placeholder="Tên danh mục mới">
+            <button onclick="addCategory()">Thêm Danh Mục</button>
+            <div class="category-list">
+                <!-- Categories will be populated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 FIT DNU Nhóm 12. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

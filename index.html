@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BA CÔ TIÊN Premium</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="topbar">
+        <div class="brand">
+            <div class="brand-icon">CVL</div>
+            <div>
+                <p class="brand-label">BA CÔ TIÊN</p>
+                <p class="brand-sub">Fastfood</p>
+            </div>
+        </div>
+        <a href="#" class="lang-btn">🇻🇳</a>
+    </div>
+
+    <header class="site-header">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">TRANG CHỦ</a></li>
+                <li><a href="#menu">MENU</a></li>
+                <li><a href="#offers">ƯU ĐÃI</a></li>
+                <li><a href="#groups">ĐOÀN ĐÔNG</a></li>
+                <li><a href="#members">THÀNH VIÊN</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="#contact">LIÊN HỆ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <span class="hero-pill"> ĐỒ ĂN NHANH </span>
+                    <h1>Thưởng Tiệc Đã Đầy</h1>
+                    <p>Đồ ăn nhanh hấp dẫn và không gian sạch sẽ.</p>
+                    <div class="hero-actions">
+                        <button id="view-menu-btn" type="button" class="btn btn-primary">XEM THỰC ĐƠN</button>
+                        <a href="#contact" class="btn btn-secondary">LIÊN HỆ NGAY</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-panel">
+                        <div class="basket-stack">
+                            <div class="basket basket-1"></div>
+                            <div class="basket basket-2"></div>
+                            <div class="basket basket-3"></div>
+                            <div class="basket basket-4"></div>
+                            <div class="basket basket-5"></div>
+                            <div class="basket basket-6"></div>
+                        </div>
+                        <div class="seafood-plate"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shadow"></div>
+        </section>
+
+        <section id="menu" class="menu">
+            <div class="section-heading">
+                <span>THỰC ĐƠN</span>
+                <h2>Món ngon dành cho mọi người</h2>
+            </div>
+            <div class="filters">
+                <input type="text" id="search" placeholder="Tìm kiếm món ăn...">
+                <select id="category-filter">
+                    <option value="">Tất cả danh mục</option>
+                </select>
+                <select id="price-filter">
+                    <option value="">Tất cả giá</option>
+                    <option value="low">Dưới 100k</option>
+                    <option value="medium">100k - 200k</option>
+                    <option value="high">Trên 200k</option>
+                </select>
+            </div>
+            <div class="menu-list"></div>
+        </section>
+
+        <section id="offers" class="content-section">
+            <div class="section-heading">
+                <span>ƯU ĐÃI</span>
+                <h2>Săn ưu đãi hấp dẫn mỗi ngày</h2>
+            </div>
+            <p>Nhận ngay ưu đãi giảm giá đồ ăn nhanh đồ ăn nhanh và combo dimsum cho nhóm đông từ 4 người trở lên.</p>
+        </section>
+
+        <section id="groups" class="content-section">
+            <div class="section-heading">
+                <span>ĐOÀN ĐÔNG</span>
+                <h2>Không gian rộng, phục vụ nhóm lớn</h2>
+            </div>
+            <p>Thiết kế không gian phù hợp cho mọi người đặc biệt là học sinh và sinh viên.</p>
+        </section>
+
+        <section id="members" class="content-section">
+            <div class="section-heading">
+                <span>THÀNH VIÊN</span>
+                <h2>Ưu đãi riêng cho hội viên</h2>
+            </div>
+            <p>Đăng ký thành viên để tích điểm, nhận voucher và ưu đãi đặc quyền chỉ dành cho khách hàng thân thiết.</p>
+        </section>
+
+        <section id="blog" class="content-section">
+            <div class="section-heading">
+                <span>BLOG</span>
+                <h2>Cập nhật tin tức và món mới</h2>
+            </div>
+            <p>Khám phá công thức, tin tức sự kiện và các món mới trong thực đơn của quán ăn vặt Ba Cô Tiên.</p>
+        </section>
+
+        <section id="contact" class="content-section contact-section">
+            <div class="section-heading">
+                <span>LIÊN HỆ</span>
+                <h2>Liên hệ đặt bàn ngay hôm nay</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Địa chỉ</h3>
+                    <p>99 Bắc Ninh</p>
+                    <h3>Điện thoại</h3>
+                    <p>0353176971</p>
+                    <h3>Email</h3>
+                    <p>dangnhan220919988@gmail.com</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Họ tên" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Số điện thoại" required>
+                    <textarea rows="4" placeholder="Tin nhắn của bạn"></textarea>
+                    <button type="submit" class="btn btn-primary">GỬI YÊU CẦU</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="dish-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="">
+            <p id="modal-description"></p>
+            <p id="modal-price"></p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+</body>
+</html>
