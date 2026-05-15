@@ -9,7 +9,7 @@
 <body>
     <div class="topbar">
         <div class="brand">
-            <div class="brand-icon">CVL</div>
+            <div class="brand-icon">BCT</div>
             <div>
                 <p class="brand-label">BA CÔ TIÊN</p>
                 <p class="brand-sub">Fastfood</p>
@@ -38,10 +38,10 @@
                 <div class="hero-copy">
                     <span class="hero-pill"> ĐỒ ĂN NHANH </span>
                     <h1>Thưởng Tiệc Đã Đầy</h1>
-                    <p>Đồ ăn nhanh hấp dẫn và không gian sạch sẽ.</p>
+                    <p>Đồ ăn hấp dẫn và không gian sạch sẽ.</p>
                     <div class="hero-actions">
                         <button id="view-menu-btn" type="button" class="btn btn-primary">XEM THỰC ĐƠN</button>
-                        <a href="#contact" class="btn btn-secondary">LIÊN HỆ NGAY</a>
+                        <button id="contact-btn" type="button" class="btn btn-secondary">LIÊN HỆ NGAY</button>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -77,6 +77,25 @@
                     <option value="medium">Dưới 100K</option>
                 </select>
             </div>
+            
+            <!-- Cart Display Section -->
+            <div class="cart-section">
+                <div class="cart-header">
+                    <h3>🛒 Giỏ Hàng Của Bạn</h3>
+                    <button id="clear-cart-btn" class="btn-clear-cart" style="display: none;">Xóa Tất Cả</button>
+                </div>
+                <div id="cart-display" class="cart-items">
+                    <p class="cart-empty">Chưa có món nào được chọn</p>
+                </div>
+                <div id="cart-summary" class="cart-summary" style="display: none;">
+                    <div class="cart-total">
+                        <span>Tổng tiền:</span>
+                        <span id="total-price">0 VND</span>
+                    </div>
+                    <button id="checkout-btn" class="btn btn-primary btn-checkout">Đặt Hàng</button>
+                </div>
+            </div>
+            
             <div class="menu-list"></div>
         </section>
 
@@ -91,7 +110,7 @@
         <section id="groups" class="content-section">
             <div class="section-heading">
                 <span>ĐOÀN ĐÔNG</span>
-                <h2>Không gian rộng, phục vụ nhóm lớn</h2>
+                <h2>Không gian rộng rãi, thoáng mát</h2>
             </div>
             <p>Thiết kế không gian phù hợp cho mọi người đặc biệt là học sinh và sinh viên.</p>
         </section>
@@ -140,15 +159,59 @@
     <div id="dish-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2 id="modal-title"></h2>
-            <img id="modal-image" src="" alt="">
-            <p id="modal-description"></p>
-            <p id="modal-price"></p>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="">
+                <div class="modal-details">
+                    <h2 id="modal-ti tle"></h2>
+                    <p id="modal-category" class="modal-category"></p>
+                    <p id="modal-availability" class="status"></p>
+                    <p id="modal-description" class="modal-description"></p>
+                    
+                    <div class="modal-footer">
+                        <div class="price-section">
+                            <span class="price-label">Giá:</span>
+                            <span id="modal-price" class="modal-price"></span>
+                        </div>
+                        
+                        <div class="quantity-section">
+                            <label for="quantity-input">Số lượng:</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" id="qty-minus">−</button>
+                                <input type="number" id="quantity-input" min="1" max="100" value="1">
+                                <button type="button" class="qty-btn" id="qty-plus">+</button>
+                            </div>
+                        </div>
+                        
+                        <button type="button" id="add-to-cart-btn" class="btn btn-primary btn-add-cart">Thêm Vào Giỏ Hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-modal" class="modal">
+        <div class="modal-content contact-modal-content">
+            <span class="close">&times;</span>
+            <h2>Thông Tin Liên Hệ</h2>
+            <div class="contact-modal-info">
+                <div class="contact-item">
+                    <h3>📍 Địa chỉ</h3>
+                    <p>99 Bắc Ninh</p>
+                </div>
+                <div class="contact-item">
+                    <h3>☎️ Điện thoại</h3>
+                    <p><a href="tel:0353176971">0353176971</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:dangnhan220919988@gmail.com">dangnhan220919988@gmail.com</a></p>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
     <script src="js/api.js"></script>
-    <script src="js/utils.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
