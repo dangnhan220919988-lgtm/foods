@@ -4,10 +4,9 @@ let dishes = [];
 let categories = ['tokbokki', 'gà sốt cay', 'kimbap', 'mì tương đen', 'lẩu kim chi', 'mì cay', 'chả cá xiên', 'hotdog', 'cơm trộn', 'gà sốt mật ong', 'khoai tây lắc', 'mì lạnh', 'bingsu dâu', 'cocca', 'trà tranh', 'nem chua rán'];
 
 const categoryMap = {
-    '1': 'Bánh mì',
-    '2': 'Xôi',
-    '3': 'Bún',
-    '4': 'Phở'
+    monChinh: 'món chính',
+    drink: 'đồ uống',
+    dessert: 'tráng miệng'
 };
 
 function showSection(id) {

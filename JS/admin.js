@@ -15,7 +15,7 @@ let dishes = JSON.parse(localStorage.getItem('dishes')) || [
     { id: 12, name: 'mì lạnh', category: 'Khai vị', price: 30000, description: 'Mì lạnh tươi mát', image: 'img/mi-lanh.jpg', available: true },
     { id: 13, name: 'bingsu dâu', category: 'Tráng miệng', price: 35000, description: 'Bingsu dâu tây', image: 'img/bingsu-dau.jpg', available: true },
     { id: 14, name: 'cocca', category: 'Đồ uống', price: 22000, description: 'Cacao nóng/lạnh', image: 'img/cocca.jpg', available: true },
-    { id: 15, name: 'trà tranh', category: 'Đồ uống', price: 18000, description: 'Trà tranh tươi', image: 'img/tra-tranh.jpg', available: true },
+    { id: 15, name: 'trà chanh', category: 'Đồ uống', price: 18000, description: 'Trà tranh tươi', image: 'img/tra-tranh.jpg', available: true },
     { id: 16, name: 'nem chua rán', category: 'Khai vị', price: 32000, description: 'Nem chua chiên giòn', image: 'img/nem-chua-ran.jpg', available: true }
 ];
 
