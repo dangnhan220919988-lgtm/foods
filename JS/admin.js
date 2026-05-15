@@ -1,10 +1,22 @@
 // Admin JavaScript for managing dishes and categories
 
 let dishes = JSON.parse(localStorage.getItem('dishes')) || [
-    { id: 1, name: 'Gà sốt cay', category: 'Món chính', price: 50000, description: 'Phở bò truyền thống', image: 'img/pho.jpg', available: true },
-    { id: 2, name: 'Mì lạnh', category: 'Khai vị', price: 30000, description: 'Gỏi cuốn tươi ngon', image: 'img/goi.jpg', available: true },
-    { id: 3, name: 'Bánh ', category: 'Tráng miệng', price: 25000, description: 'Bánh flan kem ngon', image: 'img/flan.jpg', available: false },
-    { id: 4, name: 'Cà Phê Sữa Đá', category: 'Đồ uống', price: 20000, description: 'Cà phê sữa đá Việt Nam', image: 'img/cafe.jpg', available: true }
+    { id: 1, name: 'tokbokki', category: 'Món chính', price: 45000, description: 'Bánh gạo cay nước sốt', image: 'img/tokbokki.jpg', available: true },
+    { id: 2, name: 'gà sốt cay', category: 'Món chính', price: 55000, description: 'Gà nướng sốt cay', image: 'img/ga-sot-cay.jpg', available: true },
+    { id: 3, name: 'kimbap', category: 'Khai vị', price: 40000, description: 'Cuộn cơm Hàn Quốc', image: 'img/kimbap.jpg', available: true },
+    { id: 4, name: 'mì tương đen', category: 'Món chính', price: 50000, description: 'Mì tương đen đậm đà', image: 'img/mi-tuong-den.jpg', available: true },
+    { id: 5, name: 'lẩu kim chi', category: 'Món chính', price: 120000, description: 'Lẩu cay kim chi', image: 'img/lau-kim-chi.jpg', available: true },
+    { id: 6, name: 'mì cay', category: 'Món chính', price: 48000, description: 'Mì Hàn Quốc cay nồn', image: 'img/mi-cay.jpg', available: true },
+    { id: 7, name: 'chả cá xiên', category: 'Khai vị', price: 35000, description: 'Chả cá nướng xiên', image: 'img/cha-ca-xien.jpg', available: true },
+    { id: 8, name: 'hotdog', category: 'Khai vị', price: 25000, description: 'Bánh hotdog', image: 'img/hotdog.jpg', available: true },
+    { id: 9, name: 'cơm trộn', category: 'Món chính', price: 42000, description: 'Cơm trộn Hàn Quốc', image: 'img/com-tron.jpg', available: true },
+    { id: 10, name: 'gà sốt mật ong', category: 'Món chính', price: 52000, description: 'Gà sốt mật ong thơm ngon', image: 'img/ga-sot-mat-ong.jpg', available: true },
+    { id: 11, name: 'khoai tây lắc', category: 'Khai vị', price: 28000, description: 'Khoai tây lắc nước', image: 'img/khoai-tay-lac.jpg', available: true },
+    { id: 12, name: 'mì lạnh', category: 'Khai vị', price: 30000, description: 'Mì lạnh tươi mát', image: 'img/mi-lanh.jpg', available: true },
+    { id: 13, name: 'bingsu dâu', category: 'Tráng miệng', price: 35000, description: 'Bingsu dâu tây', image: 'img/bingsu-dau.jpg', available: true },
+    { id: 14, name: 'cocca', category: 'Đồ uống', price: 22000, description: 'Cacao nóng/lạnh', image: 'img/cocca.jpg', available: true },
+    { id: 15, name: 'trà tranh', category: 'Đồ uống', price: 18000, description: 'Trà tranh tươi', image: 'img/tra-tranh.jpg', available: true },
+    { id: 16, name: 'nem chua rán', category: 'Khai vị', price: 32000, description: 'Nem chua chiên giòn', image: 'img/nem-chua-ran.jpg', available: true }
 ];
 
 let categories = JSON.parse(localStorage.getItem('categories')) || ['Món chính', 'Khai vị', 'Tráng miệng', 'Đồ uống'];

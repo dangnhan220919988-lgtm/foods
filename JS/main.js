@@ -1,8 +1,7 @@
 // Main JavaScript for the restaurant menu website
 
-const API_URL = 'https://69fd350730ad0a6fd1c09323.mockapi.io/api/v1/dishes';
 let dishes = [];
-let categories = ['món ăn', 'Xôi', 'Bún', 'Phở', 'Cơm', 'Gỏi', 'Bánh', 'Đồ uống'];
+let categories = ['tokbokki', 'gà sốt cay', 'kimbap', 'mì tương đen', 'lẩu kim chi', 'mì cay', 'chả cá xiên', 'hotdog', 'cơm trộn', 'gà sốt mật ong', 'khoai tây lắc', 'mì lạnh', 'bingsu dâu', 'cocca', 'trà tranh', 'nem chua rán'];
 
 const categoryMap = {
     '1': 'Bánh mì',
@@ -19,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const viewMenuBtn = document.getElementById('view-menu-btn');
     if (viewMenuBtn) {
-        viewMenuBtn.addEventListener('click', () => {
-            loadData();
+        viewMenuBtn.addEventListener('click', async () => {
+            await loadData();
             showSection('menu');
         });
     }
@@ -47,11 +46,11 @@ function setupSectionNavigation() {
     }
 
     navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
+        link.addEventListener('click', async function(event) {
             event.preventDefault();
             const targetId = this.getAttribute('href').replace('#', '');
             if (targetId === 'menu') {
-                loadData();
+                await loadData();
             }
             showSection(targetId);
         });
@@ -60,47 +59,21 @@ function setupSectionNavigation() {
     showSection('home');
 }
 
-function loadData() {
-    fetch(API_URL)
-        .then(response => response.json())
-        .then(apiDishes => {
-            dishes = apiDishes.map(dish => ({
-                id: dish.id,
-                name: dish.name || 'Món ăn',
-                image: dish.image || 'https://via.placeholder.com/420x280?text=Ẩm+Thực',
-                price: Number(dish.price) || 0,
-                category: dish.category || 'Khác',
-                description: dish.description || 'Mô tả đang cập nhật',
-                available: dish.available !== false
-            }));
+async function loadData() {
+    try {
+        const apiDishes = await getDishes();
+        dishes = apiDishes.map(dish => ({
+            id: dish.id,
+            name: dish.name || 'Món ăn',
+            image: dish.image || 'https://via.placeholder.com/420x280?text=Ẩm+Thực',
+            price: Number(dish.price) || 0,
+            category: dish.category || 'Khác',
+            description: dish.description || 'Mô tả đang cập nhật',
+            available: dish.available !== false
+        }));
 
-            if (dishes.length === 0) {
-                // Dữ liệu mẫu nếu API rỗng
-                dishes = [
-                    { id: '1', name: 'Phở Bò', image: 'https://via.placeholder.com/420x280?text=Phở+Bò', price: 45000, category: 'Phở', description: 'Phở bò truyền thống với thịt bò tươi ngon.', available: true },
-                    { id: '2', name: 'Bún Bò Huế', image: 'https://via.placeholder.com/420x280?text=Bún+Bò+Huế', price: 50000, category: 'Bún', description: 'Bún bò Huế cay nồng, đậm đà hương vị.', available: true },
-                    { id: '3', name: 'Cơm Tấm Sườn', image: 'https://via.placeholder.com/420x280?text=Cơm+Tấm+Sườn', price: 55000, category: 'Cơm', description: 'Cơm tấm với sườn nướng và trứng ốp la.', available: true },
-                    { id: '4', name: 'Gỏi Cuốn', image: 'https://via.placeholder.com/420x280?text=Gỏi+Cuốn', price: 35000, category: 'Gỏi', description: 'Gỏi cuốn tươi mát với tôm và thịt.', available: true },
-                    { id: '5', name: 'Bánh Mì Thịt Nướng', image: 'https://via.placeholder.com/420x280?text=Bánh+Mì+Thịt+Nướng', price: 40000, category: 'Bánh mì', description: 'Bánh mì với thịt nướng và rau sống.', available: true },
-                    { id: '6', name: 'Xôi Gà', image: 'https://via.placeholder.com/420x280?text=Xôi+Gà', price: 45000, category: 'Xôi', description: 'Xôi dẻo thơm với gà luộc.', available: true },
-                    { id: '7', name: 'Bánh Xèo', image: 'https://via.placeholder.com/420x280?text=Bánh+Xèo', price: 60000, category: 'Bánh', description: 'Bánh xèo giòn tan với thịt và rau.', available: true },
-                    { id: '8', name: 'Trà Đá', image: 'https://via.placeholder.com/420x280?text=Trà+Đá', price: 15000, category: 'Đồ uống', description: 'Trà đá tươi mát.', available: true },
-                    { id: '9', name: 'Cà Phê Sữa Đá', image: 'https://via.placeholder.com/420x280?text=Cà+Phê+Sữa+Đá', price: 25000, category: 'Đồ uống', description: 'Cà phê sữa đá đậm đà.', available: true },
-                    { id: '10', name: 'Nước Mía', image: 'https://via.placeholder.com/420x280?text=Nước+Mía', price: 20000, category: 'Đồ uống', description: 'Nước mía ép tươi.', available: true },
-                    { id: '11', name: 'Sinh Tố Bơ', image: 'https://via.placeholder.com/420x280?text=Sinh+Tố+Bơ', price: 30000, category: 'Đồ uống', description: 'Sinh tố bơ thơm ngon.', available: true },
-                    { id: '12', name: 'Bánh Mì Pate', image: 'https://via.placeholder.com/420x280?text=Bánh+Mì+Pate', price: 35000, category: 'Bánh mì', description: 'Bánh mì với pate và rau.', available: true },
-                    { id: '13', name: 'Phở Gà', image: 'https://via.placeholder.com/420x280?text=Phở+Gà', price: 40000, category: 'Phở', description: 'Phở gà với thịt gà tươi.', available: true },
-                    { id: '14', name: 'Bún Riêu', image: 'https://via.placeholder.com/420x280?text=Bún+Riêu', price: 50000, category: 'Bún', description: 'Bún riêu cua với thịt và rau.', available: true },
-                    { id: '15', name: 'Cơm Chiên Dương Châu', image: 'https://via.placeholder.com/420x280?text=Cơm+Chiên+Dương+Châu', price: 55000, category: 'Cơm', description: 'Cơm chiên với hải sản và rau củ.', available: true }
-                ];
-            }
-
-            populateCategories();
-            displayDishes(dishes);
-        })
-        .catch(error => {
-            console.error('Lỗi khi lấy dữ liệu từ API:', error);
-            // Dữ liệu mẫu nếu API lỗi
+        if (dishes.length === 0) {
+            // Dữ liệu mẫu nếu API rỗng
             dishes = [
                 { id: '1', name: 'Phở Bò', image: 'https://via.placeholder.com/420x280?text=Phở+Bò', price: 45000, category: 'Phở', description: 'Phở bò truyền thống với thịt bò tươi ngon.', available: true },
                 { id: '2', name: 'Bún Bò Huế', image: 'https://via.placeholder.com/420x280?text=Bún+Bò+Huế', price: 50000, category: 'Bún', description: 'Bún bò Huế cay nồng, đậm đà hương vị.', available: true },
@@ -118,9 +91,33 @@ function loadData() {
                 { id: '14', name: 'Bún Riêu', image: 'https://via.placeholder.com/420x280?text=Bún+Riêu', price: 50000, category: 'Bún', description: 'Bún riêu cua với thịt và rau.', available: true },
                 { id: '15', name: 'Cơm Chiên Dương Châu', image: 'https://via.placeholder.com/420x280?text=Cơm+Chiên+Dương+Châu', price: 55000, category: 'Cơm', description: 'Cơm chiên với hải sản và rau củ.', available: true }
             ];
-            populateCategories();
-            displayDishes(dishes);
-        });
+        }
+
+        populateCategories();
+        displayDishes(dishes);
+    } catch (error) {
+        console.error('Lỗi khi tải dữ liệu:', error);
+        // Dữ liệu mẫu nếu API lỗi
+        dishes = [
+            { id: '1', name: 'Phở Bò', image: 'https://via.placeholder.com/420x280?text=Phở+Bò', price: 45000, category: 'Phở', description: 'Phở bò truyền thống với thịt bò tươi ngon.', available: true },
+            { id: '2', name: 'Bún Bò Huế', image: 'https://via.placeholder.com/420x280?text=Bún+Bò+Huế', price: 50000, category: 'Bún', description: 'Bún bò Huế cay nồng, đậm đà hương vị.', available: true },
+            { id: '3', name: 'Cơm Tấm Sườn', image: 'https://via.placeholder.com/420x280?text=Cơm+Tấm+Sườn', price: 55000, category: 'Cơm', description: 'Cơm tấm với sườn nướng và trứng ốp la.', available: true },
+            { id: '4', name: 'Gỏi Cuốn', image: 'https://via.placeholder.com/420x280?text=Gỏi+Cuốn', price: 35000, category: 'Gỏi', description: 'Gỏi cuốn tươi mát với tôm và thịt.', available: true },
+            { id: '5', name: 'Bánh Mì Thịt Nướng', image: 'https://via.placeholder.com/420x280?text=Bánh+Mì+Thịt+Nướng', price: 40000, category: 'Bánh mì', description: 'Bánh mì với thịt nướng và rau sống.', available: true },
+            { id: '6', name: 'Xôi Gà', image: 'https://via.placeholder.com/420x280?text=Xôi+Gà', price: 45000, category: 'Xôi', description: 'Xôi dẻo thơm với gà luộc.', available: true },
+            { id: '7', name: 'Bánh Xèo', image: 'https://via.placeholder.com/420x280?text=Bánh+Xèo', price: 60000, category: 'Bánh', description: 'Bánh xèo giòn tan với thịt và rau.', available: true },
+            { id: '8', name: 'Trà Đá', image: 'https://via.placeholder.com/420x280?text=Trà+Đá', price: 15000, category: 'Đồ uống', description: 'Trà đá tươi mát.', available: true },
+            { id: '9', name: 'Cà Phê Sữa Đá', image: 'https://via.placeholder.com/420x280?text=Cà+Phê+Sữa+Đá', price: 25000, category: 'Đồ uống', description: 'Cà phê sữa đá đậm đà.', available: true },
+            { id: '10', name: 'Nước Mía', image: 'https://via.placeholder.com/420x280?text=Nước+Mía', price: 20000, category: 'Đồ uống', description: 'Nước mía ép tươi.', available: true },
+            { id: '11', name: 'Sinh Tố Bơ', image: 'https://via.placeholder.com/420x280?text=Sinh+Tố+Bơ', price: 30000, category: 'Đồ uống', description: 'Sinh tố bơ thơm ngon.', available: true },
+            { id: '12', name: 'Bánh Mì Pate', image: 'https://via.placeholder.com/420x280?text=Bánh+Mì+Pate', price: 35000, category: 'Bánh mì', description: 'Bánh mì với pate và rau.', available: true },
+            { id: '13', name: 'Phở Gà', image: 'https://via.placeholder.com/420x280?text=Phở+Gà', price: 40000, category: 'Phở', description: 'Phở gà với thịt gà tươi.', available: true },
+            { id: '14', name: 'Bún Riêu', image: 'https://via.placeholder.com/420x280?text=Bún+Riêu', price: 50000, category: 'Bún', description: 'Bún riêu cua với thịt và rau.', available: true },
+            { id: '15', name: 'Cơm Chiên Dương Châu', image: 'https://via.placeholder.com/420x280?text=Cơm+Chiên+Dương+Châu', price: 55000, category: 'Cơm', description: 'Cơm chiên với hải sản và rau củ.', available: true }
+        ];
+        populateCategories();
+        displayDishes(dishes);
+    }
 }
 
 function populateCategories() {
