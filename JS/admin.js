@@ -14,9 +14,8 @@ let dishes = JSON.parse(localStorage.getItem('dishes')) || [
     { id: 11, name: 'khoai tây lắc', category: 'Khai vị', price: 45000, description: 'Khoai tây lắc nước', image: 'img/khoai-tay-lac.jpg', available: true },
     { id: 12, name: 'mì lạnh', category: 'Khai vị', price: 90000, description: 'Mì lạnh tươi mát', image: 'img/mi-lanh.jpg', available: true },
     { id: 13, name: 'bingsu dâu', category: 'Tráng miệng', price: 70000, description: 'Bingsu dâu tây', image: 'img/bingsu-dau.jpg', available: true },
-    { id: 14, name: 'cocca', category: 'Đồ uống', price: 15000, description: 'Cacao nóng/lạnh', image: 'img/cocca.jpg', available: true },
-    { id: 15, name: 'trà chanh', category: 'Đồ uống', price: 25000, description: 'Trà tranh tươi', image: 'img/tra-tranh.jpg', available: true },
-    { id: 16, name: 'nem chua rán', category: 'Khai vị', price: 45000, description: 'Nem chua chiên giòn', image: 'img/nem-chua-ran.jpg', available: true }
+    { id: 14, name: 'trà chanh', category: 'Đồ uống', price: 25000, description: 'Trà tranh tươi', image: 'img/tra-tranh.jpg', available: true },
+    { id: 15, name: 'nem chua rán', category: 'Khai vị', price: 45000, description: 'Nem chua chiên giòn', image: 'img/nem-chua-ran.jpg', available: true }
 ];
 
 let categories = JSON.parse(localStorage.getItem('categories')) || ['Món chính', 'Khai vị', 'Tráng miệng', 'Đồ uống'];
