@@ -15,7 +15,10 @@
                 <p class="brand-sub">Fastfood</p>
             </div>
         </div>
-        <a href="#" class="lang-btn">🇻🇳</a>
+        <div class="topbar-actions">
+            <button id="admin-login-btn" type="button" class="btn btn-secondary">Admin</button>
+            <a href="#" class="lang-btn">🇻🇳</a>
+        </div>
     </div>
 
     <header class="site-header">
@@ -208,6 +211,21 @@
                     <p><a href="mailto:dangnhan220919988@gmail.com">dangnhan220919988@gmail.com</a></p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="admin-login-modal" class="modal">
+        <div class="modal-content login-modal-content">
+            <span class="close">&times;</span>
+            <h2>Đăng nhập Admin</h2>
+            <form id="admin-login-form">
+                <label for="admin-username">Tên đăng nhập</label>
+                <input type="text" id="admin-username" placeholder="bacotien" required>
+                <label for="admin-password">Mật khẩu</label>
+                <input type="password" id="admin-password" placeholder="123456" required>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                <p id="admin-login-error" class="error-message"></p>
+            </form>
         </div>
     </div>
 

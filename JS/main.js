@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupFilters();
     setupModal();
     setupContactForm();
+    setupAdminLogin();
     setupSectionNavigation();
 
     const viewMenuBtn = document.getElementById('view-menu-btn');
@@ -233,6 +234,41 @@ function setupModal() {
         qtyPlus.addEventListener('click', function() {
             const value = parseInt(quantityInput.value) || 1;
             quantityInput.value = value + 1;
+        });
+    }
+}
+
+function setupAdminLogin() {
+    const adminLoginBtn = document.getElementById('admin-login-btn');
+    const adminLoginModal = document.getElementById('admin-login-modal');
+    const adminLoginForm = document.getElementById('admin-login-form');
+    const adminLoginError = document.getElementById('admin-login-error');
+
+    if (adminLoginBtn && adminLoginModal) {
+        adminLoginBtn.addEventListener('click', function() {
+            adminLoginModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            if (adminLoginError) {
+                adminLoginError.textContent = '';
+            }
+            const usernameInput = document.getElementById('admin-username');
+            const passwordInput = document.getElementById('admin-password');
+            if (usernameInput) usernameInput.value = '';
+            if (passwordInput) passwordInput.value = '';
+        });
+    }
+
+    if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('admin-username').value.trim();
+            const password = document.getElementById('admin-password').value.trim();
+
+            if (username === 'bacotien' && password === '123456') {
+                window.location.href = 'admin.html';
+            } else if (adminLoginError) {
+                adminLoginError.textContent = 'Tên đăng nhập hoặc mật khẩu không đúng.';
+            }
         });
     }
 }
